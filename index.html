@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Astri Darmayanti — Public Relations</title>
+<meta name="description" content="Astri Darmayanti — Public Relations Director specialising in luxury hospitality, tourism and lifestyle communications. Jakarta, Indonesia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#f6f1e8; --sand:#ebe2d2; --ink:#1d1a17; --ink-soft:#5b544c;
+  --gold:#a8834a; --gold-soft:#d8c29a; --line:rgba(29,26,23,.14);
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+::selection{background:var(--gold-soft)}
+
+/* grain */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* intro curtain */
+.curtain{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:var(--ink);color:var(--ivory)}
+.curtain__mono{font-family:var(--serif);font-size:clamp(56px,10vw,120px);font-weight:300;letter-spacing:.04em;overflow:hidden}
+.curtain__mono span{display:inline-block}
+.curtain__bar{position:absolute;bottom:18%;left:50%;width:120px;height:1px;background:rgba(246,241,232,.2);transform:translateX(-50%)}
+.curtain__bar i{display:block;height:100%;width:100%;background:var(--gold-soft);transform-origin:left;transform:scaleX(0)}
+
+/* progress + nav */
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--gold);transform-origin:left;transform:scaleX(0);z-index:60}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:22px clamp(16px,4vw,48px);mix-blend-mode:difference;color:#fff}
+nav .mark{font-family:var(--serif);font-size:22px;letter-spacing:.08em;text-decoration:none}
+nav ul{display:flex;gap:28px;list-style:none;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+nav ul a{text-decoration:none;opacity:.85}
+nav ul a:hover{opacity:1}
+@media (max-width:760px){nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px clamp(16px,6vw,96px) 80px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;pointer-events:none}
+.blob.b1{width:46vw;height:46vw;background:#e3cfa8;top:-10vw;right:-8vw}
+.blob.b2{width:34vw;height:34vw;background:#d9c7b8;bottom:-12vw;left:-6vw}
+.blob.b3{width:22vw;height:22vw;background:#c9b48c;top:40%;left:45%;opacity:.35}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(56px,13vw,200px);line-height:.9;letter-spacing:-.02em;margin:24px 0 32px;position:relative}
+.hero h1 .row{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .row:last-child{padding-left:clamp(0px,12vw,200px);font-style:italic}
+.hero h1 .ch{display:inline-block;will-change:transform}
+.hero .lede{max-width:560px;font-size:clamp(16px,1.6vw,19px);color:var(--ink-soft);position:relative}
+.hero .meta{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:40px;font-size:13px;letter-spacing:.06em;position:relative}
+.hero .meta span{display:flex;align-items:center;gap:10px}
+.hero .meta span::before{content:"";width:18px;height:1px;background:var(--gold)}
+.portrait{position:absolute;right:clamp(16px,6vw,96px);top:50%;margin-top:calc(clamp(260px,27vw,430px) * -.62);width:clamp(260px,27vw,430px);aspect-ratio:3/4;z-index:0}
+.portrait .frame{position:absolute;inset:0;border-radius:999px 999px 0 0;overflow:hidden;background:var(--sand)}
+.portrait img{width:100%;height:118%;object-fit:cover;object-position:50% 30%;display:block;will-change:transform}
+.portrait .ring{position:absolute;inset:-14px;border:1px solid var(--gold);border-radius:999px 999px 0 0;opacity:.6}
+.portrait .cap{position:absolute;left:-28px;bottom:28px;background:var(--ivory);padding:10px 18px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;box-shadow:0 10px 30px rgba(29,26,23,.08)}
+.hero .eyebrow,.hero h1,.hero .lede,.hero .meta{z-index:1}
+@media (max-width:900px){
+  .portrait{position:relative;right:auto;top:auto;margin:0 0 28px;width:150px}
+  .portrait .ring{inset:-8px}
+  .portrait .cap{display:none}
+  .scroll-cue{display:none}
+}
+.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-cue i{width:1px;height:48px;background:linear-gradient(var(--ink-soft),transparent);display:block;animation:cue 2.2s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+/* sections */
+section{position:relative;padding:clamp(80px,12vw,160px) clamp(16px,6vw,96px)}
+.sec-label{display:flex;align-items:center;gap:16px;margin-bottom:48px}
+.sec-label b{font-family:var(--serif);font-weight:400;font-style:italic;font-size:20px;color:var(--gold)}
+.sec-label span{font-size:12px;letter-spacing:.3em;text-transform:uppercase}
+.sec-label::after{content:"";flex:1;height:1px;background:var(--line);max-width:240px}
+h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,6vw,84px);line-height:1;letter-spacing:-.01em}
+h2 em{color:var(--gold)}
+
+/* profile */
+.profile p.big{font-family:var(--serif);font-size:clamp(26px,3.4vw,46px);line-height:1.25;font-weight:300;max-width:1100px}
+.profile p.big .w{opacity:.14;transition:none}
+.profile .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;margin-top:64px;max-width:1100px;color:var(--ink-soft)}
+
+/* stats */
+.stats{background:var(--ink);color:var(--ivory)}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(246,241,232,.12)}
+.stat{background:var(--ink);padding:48px 28px}
+.stat .n{font-family:var(--serif);font-size:clamp(64px,8vw,120px);font-weight:300;line-height:1;color:var(--gold-soft)}
+.stat .n sup{font-size:.4em;vertical-align:top;margin-left:4px}
+.stat p{margin-top:16px;font-size:13px;letter-spacing:.08em;color:rgba(246,241,232,.7);max-width:200px}
+@media (max-width:860px){.stats .grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:420px){.stat{padding:32px 18px}}
+
+/* experience */
+.timeline{position:relative;margin-top:24px;max-width:1150px}
+.timeline .rail{position:absolute;left:180px;top:0;bottom:0;width:1px;background:var(--line)}
+.timeline .rail i{position:absolute;inset:0;background:var(--gold);transform-origin:top;transform:scaleY(0)}
+.job{display:grid;grid-template-columns:180px 1fr;gap:0;padding:44px 0;position:relative}
+.job .yr{font-family:var(--serif);font-size:22px;color:var(--gold);padding-right:32px;padding-top:4px}
+.job .body{padding-left:48px;position:relative}
+.job .body::before{content:"";position:absolute;left:-6px;top:14px;width:11px;height:11px;border-radius:50%;background:var(--ivory);border:1px solid var(--gold)}
+.job.on .body::before{background:var(--gold)}
+.job h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.1}
+.job .co{font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin:10px 0 18px;color:var(--ink-soft);font-weight:500}
+.job .intro{font-size:17px;max-width:680px}
+.job ul{list-style:none;margin-top:18px;columns:2;column-gap:40px;font-size:14.5px;color:var(--ink-soft)}
+.job li{break-inside:avoid;padding:6px 0 6px 20px;position:relative}
+.job li::before{content:"";position:absolute;left:0;top:16px;width:8px;height:1px;background:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips span{font-size:12px;padding:6px 14px;border:1px solid var(--line);border-radius:99px;background:rgba(255,255,255,.35)}
+@media (max-width:760px){
+  .timeline .rail{left:5px}
+  .job{grid-template-columns:1fr;padding-left:30px}
+  .job .yr{padding:0 0 6px;font-size:18px}
+  .job .body{padding-left:0}
+  .job .body::before{left:-30px;top:-26px}
+  .job ul{columns:1}
+}
+
+/* clients marquee */
+.clients{padding-left:0;padding-right:0;background:var(--sand);overflow:hidden}
+.clients .head{padding:0 clamp(16px,6vw,96px);margin-bottom:56px}
+.marquee{display:flex;white-space:nowrap;font-family:var(--serif);font-size:clamp(34px,5.5vw,76px);font-weight:300;line-height:1.3}
+.marquee .track{display:flex;flex-shrink:0}
+.marquee .track span{padding:0 .5em;display:flex;align-items:center;gap:1em}
+.marquee .track span::after{content:"✦";font-size:.32em;color:var(--gold)}
+.marquee.alt{font-style:italic;color:var(--ink-soft)}
+
+/* network */
+.network .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:center}
+.network svg{width:100%;height:auto;overflow:visible}
+.network .dotgrid circle{fill:var(--ink);opacity:.09}
+.network .arc{fill:none;stroke:var(--gold);stroke-width:1.4}
+.network .city circle.core{fill:var(--ink)}
+.network .city circle.pulse{fill:none;stroke:var(--gold);stroke-width:1}
+.network .city text{font-family:var(--sans);font-size:15px;letter-spacing:.14em;text-transform:uppercase;fill:var(--ink);font-weight:500}
+.network .city.home circle.core{fill:var(--gold)}
+@media (max-width:860px){.network .wrap{grid-template-columns:1fr}}
+
+/* competencies */
+.skills .cloud{display:flex;flex-wrap:wrap;gap:12px;max-width:1150px;margin-top:48px}
+.skills .cloud span{font-family:var(--serif);font-size:clamp(20px,2.2vw,28px);padding:10px 24px;border:1px solid var(--line);border-radius:99px;transition:background .35s,color .35s,border-color .35s;cursor:default}
+.skills .cloud span:hover{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+
+/* education */
+.edu .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px;max-width:1150px}
+.card{border:1px solid var(--line);padding:44px 36px;position:relative;overflow:hidden;background:rgba(255,255,255,.3)}
+.card .tag{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.card h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.15;margin:16px 0 12px}
+.card p{color:var(--ink-soft);font-size:15px}
+.card .yr{position:absolute;right:-8px;bottom:-34px;font-family:var(--serif);font-size:140px;line-height:1;color:var(--gold);opacity:.1;font-weight:300}
+
+/* contact */
+.contact{background:var(--ink);color:var(--ivory);text-align:center;padding-bottom:64px;overflow:hidden}
+.contact .eyebrow{color:var(--gold-soft)}
+.contact h2{font-size:clamp(44px,8vw,128px);margin:28px auto 40px;max-width:1100px}
+.contact h2 .row{display:block;overflow:hidden}
+.contact h2 .row>span{display:inline-block}
+.contact h2 em{color:var(--gold-soft)}
+.btn{display:inline-flex;align-items:center;gap:14px;padding:18px 34px;border:1px solid rgba(246,241,232,.35);border-radius:99px;text-decoration:none;font-size:13px;letter-spacing:.2em;text-transform:uppercase;position:relative;overflow:hidden;transition:color .4s}
+.btn::before{content:"";position:absolute;inset:0;background:var(--gold-soft);transform:translateY(101%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover{color:var(--ink)}
+.btn:hover::before{transform:none}
+.btn{z-index:0}
+.contact .alt{margin-top:22px;font-size:14px;color:rgba(246,241,232,.6)}
+.contact .alt a{text-decoration:none;border-bottom:1px solid rgba(246,241,232,.25)}
+.contact footer{margin-top:100px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,241,232,.4);border-top:1px solid rgba(246,241,232,.12);padding-top:28px;text-align:left}
+
+/* cursor */
+.cursor{position:fixed;top:0;left:0;width:36px;height:36px;margin:-18px 0 0 -18px;border:1px solid var(--gold);border-radius:50%;pointer-events:none;z-index:80;opacity:0;mix-blend-mode:multiply}
+@media (hover:none){.cursor{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  .curtain{display:none}
+  .scroll-cue i{animation:none}
+  .profile p.big .w{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__mono"><span>A</span><span>D</span></div>
+  <div class="curtain__bar"><i></i></div>
+</div>
+<div class="progress"></div>
+<div class="cursor"></div>
+
+<nav>
+  <a class="mark" href="#top">AD</a>
+  <ul>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#skills">Expertise</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.linkedin.com/in/astri-darmayanti-maya-4038a842/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <figure class="portrait">
+    <div class="ring"></div>
+    <div class="frame"><img src="photo.jpg" alt="Portrait of Astri Darmayanti"></div>
+    <figcaption class="cap">Astri “Maya” Darmayanti</figcaption>
+  </figure>
+  <div class="eyebrow hero-in">Public Relations Director · Jakarta</div>
+  <h1 aria-label="Astri Darmayanti">
+    <span class="row" data-split>Astri</span>
+    <span class="row" data-split>Darmayanti</span>
+  </h1>
+  <p class="lede hero-in">Crafting stories for the world’s most considered luxury hospitality, travel and lifestyle brands — from resort openings to the conversations that make them matter.</p>
+  <div class="meta hero-in">
+    <span>12 years in PR</span><span>Luxury Hospitality</span><span>Media &amp; KOL Relations</span>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><i></i></div>
+</header>
+
+<section class="profile" id="profile">
+  <div class="sec-label"><b>01</b><span>Profile</span></div>
+  <p class="big" id="profileText">A Public Relations professional who led the Indonesia office of an Asia-based communications agency, shaping integrated campaigns for luxury hospitality and lifestyle brands — resort and hotel openings, brand positioning and audience engagement, from intimate gatherings to large-scale events.</p>
+  <div class="cols">
+    <p class="fade-up">Graduate of The London School of Public Relations, Jakarta, with a grounding in communication principles from both the media and the PR side of the table — first as a magazine editor, then as a strategist.</p>
+    <p class="fade-up">Detail-oriented and collaborative, delivering consistent work across multiple platforms and reaching each brand’s audience through strategic communications that drive visibility and business objectives.</p>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="grid">
+    <div class="stat"><div class="n"><span data-count="19">0</span><sup>yrs</sup></div><p>Across editorial, communications &amp; PR since 2007</p></div>
+    <div class="stat"><div class="n"><span data-count="12">0</span><sup>yrs</sup></div><p>Dedicated Public Relations experience</p></div>
+    <div class="stat"><div class="n"><span data-count="27">0</span><sup>+</sup></div><p>Key clients across hospitality, tourism &amp; lifestyle</p></div>
+    <div class="stat"><div class="n"><span data-count="6">0</span></div><p>Markets coordinated — Indonesia, Hong Kong, Singapore, Shanghai, Beijing &amp; GCC</p></div>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="sec-label"><b>02</b><span>Experience</span></div>
+  <h2 class="fade-up">Two decades <em>between</em><br>the page &amp; the press</h2>
+  <div class="timeline" style="margin-top:56px">
+    <div class="rail"><i></i></div>
+
+    <article class="job">
+      <div class="yr">2017 — 2026</div>
+      <div class="body">
+        <h3>Public Relations Account Director, Indonesia</h3>
+        <div class="co">Petrie PR</div>
+        <p class="intro">Led and managed the Indonesia office, working with regional teams in Hong Kong, Singapore, Shanghai, Beijing and the GCC.</p>
+        <ul>
+          <li>Directed communications strategy and campaign execution for global luxury hospitality, tourism, real estate and lifestyle brands</li>
+          <li>Built market-specific PR strategies tailored to Indonesian audiences</li>
+          <li>Managed client relationships and counselled senior stakeholders</li>
+          <li>Led and mentored the Indonesia team on multi-market campaigns</li>
+          <li>Oversaw media engagement, influencer partnerships, press events, launches and hosted media experiences</li>
+          <li>Built lasting relationships with journalists, editors, creators and opinion makers</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="yr">2014 — 2017</div>
+      <div class="body">
+        <h3>Public Relations Manager</h3>
+        <div class="co">Iris Worldwide Indonesia</div>
+        <p class="intro">Strategic communications for multinational brands across consumer, technology, telecommunications and beverage sectors.</p>
+        <ul>
+          <li>Developed and executed integrated PR campaigns</li>
+          <li>Produced press releases, media kits and campaign messaging</li>
+          <li>Built relationships with national and regional media and KOLs</li>
+          <li>Organised briefings, press conferences, launches and stakeholder events</li>
+          <li>Provided strategic recommendations to clients</li>
+          <li>Delivered annual reporting and campaign evaluations</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="yr">2011 — 2014</div>
+      <div class="body">
+        <h3>Marketing Communications &amp; Managing Editor</h3>
+        <div class="co">JAX Magazine</div>
+        <p class="intro">Led editorial planning for a monthly title while building brand partnerships and aligning editorial direction with commercial goals.</p>
+        <ul>
+          <li>Developed strategic brand partnerships and collaborations</li>
+          <li>Managed workflows, editorial calendars and contributors</li>
+          <li>Supported social media monitoring and audience engagement</li>
+          <li>Produced editorial content for print and digital</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="yr">2007 — 2011</div>
+      <div class="body">
+        <h3>Editor</h3>
+        <div class="co">Juice Magazine &amp; Area Magazine · Media Satu Group</div>
+        <p class="intro">Features, interviews, profiles, event coverage and news — plus editorial photoshoots and English-to-Bahasa Indonesia translation.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="clients" id="clients">
+  <div class="head">
+    <div class="sec-label"><b>03</b><span>Selected Clients</span></div>
+    <h2 class="fade-up">Trusted by <em>iconic</em> names</h2>
+  </div>
+  <div class="marquee" data-dir="-1"><div class="track">
+    <span>Aman</span><span>Belmond</span><span>JOALI Maldives</span><span>NIHI Sumba</span><span>Marriott International</span><span>The St. Regis Jakarta</span><span>Regent Bali Canggu</span><span>Banyan Group</span><span>Alila Hotels &amp; Resorts</span><span>Andaz Bali</span><span>Singapore Tourism Board</span><span>Hakkasan Group</span><span>The PuLi Group</span><span>Tanjung Kelayang Reserve</span>
+  </div></div>
+  <div class="marquee alt" data-dir="1"><div class="track">
+    <span>The Sira, Lombok</span><span>Ta’aktana Labuan Bajo</span><span>METT Singapore</span><span>Savyavasa</span><span>The Residence at Cenizaro</span><span>Diageo</span><span>Johnnie Walker</span><span>Guinness</span><span>Captain Morgan</span><span>Smirnoff</span><span>Levi’s</span><span>Samsung</span><span>XL Axiata</span>
+  </div></div>
+</section>
+
+<section class="network">
+  <div class="wrap">
+    <div>
+      <div class="sec-label"><b>04</b><span>Regional Reach</span></div>
+      <h2 class="fade-up">Jakarta at the <em>centre</em> of a regional network</h2>
+      <p class="fade-up" style="margin-top:24px;color:var(--ink-soft);max-width:440px">Multi-market campaigns coordinated with Petrie PR offices across Hong Kong, Singapore, Shanghai, Beijing and the GCC.</p>
+    </div>
+    <svg viewBox="0 0 850 560" role="img" aria-label="Map of markets connected to Jakarta">
+      <g class="dotgrid"></g>
+      <g class="arcs">
+        <path class="arc" d="M618 512 Q 560 470 588 436"/>
+        <path class="arc" d="M618 512 Q 720 380 692 227"/>
+        <path class="arc" d="M618 512 Q 800 320 765 138"/>
+        <path class="arc" d="M618 512 Q 760 260 714 51"/>
+        <path class="arc" d="M618 512 Q 330 260 103 198"/>
+      </g>
+      <g class="city home" transform="translate(618 512)"><circle class="pulse" r="8"/><circle class="core" r="7"/><text x="16" y="5">Jakarta</text></g>
+      <g class="city" transform="translate(588 436)"><circle class="pulse" r="5"/><circle class="core" r="5"/><text x="-16" y="5" text-anchor="end">Singapore</text></g>
+      <g class="city" transform="translate(692 227)"><circle class="pulse" r="5"/><circle class="core" r="5"/><text x="-16" y="5" text-anchor="end">Hong Kong</text></g>
+      <g class="city" transform="translate(765 138)"><circle class="pulse" r="5"/><circle class="core" r="5"/><text x="14" y="5">Shanghai</text></g>
+      <g class="city" transform="translate(714 51)"><circle class="pulse" r="5"/><circle class="core" r="5"/><text x="-16" y="5" text-anchor="end">Beijing</text></g>
+      <g class="city" transform="translate(103 198)"><circle class="pulse" r="5"/><circle class="core" r="5"/><text x="0" y="-18" text-anchor="middle">GCC</text></g>
+    </svg>
+  </div>
+</section>
+
+<section class="skills" id="skills" style="background:var(--sand)">
+  <div class="sec-label"><b>05</b><span>Core Competencies</span></div>
+  <h2 class="fade-up">The <em>craft</em></h2>
+  <div class="cloud">
+    <span>Strategic Public Relations</span><span>Luxury Hospitality Communications</span><span>Media Relations</span><span>Key Opinion Leader Relations</span><span>Brand Positioning</span><span>Crisis Communications</span><span>Event Planning &amp; Management</span><span>Corporate Communications</span><span>Integrated Marketing Communications</span><span>Stakeholder Engagement</span><span>Content Development</span><span>Press Releases &amp; Communication Content</span><span>Team Leadership &amp; Mentoring</span><span>Client Relationship Management</span><span>Tourism &amp; Destination Marketing</span><span>Communications Strategy</span>
+  </div>
+</section>
+
+<section class="edu">
+  <div class="sec-label"><b>06</b><span>Education &amp; Recognition</span></div>
+  <div class="cards">
+    <div class="card">
+      <div class="tag">Education</div>
+      <h3>Bachelor of Communication Science in Public Relations (S.I.Kom.)</h3>
+      <p>The London School of Public Relations — Jakarta</p>
+      <div class="yr">LSPR</div>
+    </div>
+    <div class="card">
+      <div class="tag">Award · 2026</div>
+      <h3>Professional Excellence Award</h3>
+      <p>“Shaping The Future Through Collaborative Excellence” — LSPR Communication &amp; Business Institute, Jakarta</p>
+      <div class="yr">2026</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="eyebrow">Get in touch</div>
+  <h2>
+    <span class="row"><span>Let’s build</span></span>
+    <span class="row"><span><em>impactful</em> stories</span></span>
+    <span class="row"><span>together.</span></span>
+  </h2>
+  <a class="btn magnetic" href="mailto:astridarmayanti17@gmail.com">astridarmayanti17@gmail.com <span aria-hidden="true">→</span></a>
+  <p class="alt">or <a href="mailto:astri.darmayanti@yahoo.com">astri.darmayanti@yahoo.com</a> · <a href="https://www.linkedin.com/in/astri-darmayanti-maya-4038a842/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a></p>
+  <footer><span>© 2026 Astri Darmayanti</span><span>Jakarta, Indonesia</span><span>References available on request</span></footer>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  // dot grid for the map (built regardless of motion preference)
+  const g=document.querySelector('.dotgrid');
+  if(g){let s='';for(let x=10;x<850;x+=22)for(let y=10;y<560;y+=22)s+=`<circle cx="${x}" cy="${y}" r="1.4"/>`;g.innerHTML=s;}
+
+  // split hero letters
+  document.querySelectorAll('[data-split]').forEach(el=>{
+    el.innerHTML=[...el.textContent].map(c=>`<span class="ch">${c}</span>`).join('');
+  });
+  // split profile words
+  const pt=document.getElementById('profileText');
+  pt.innerHTML=pt.textContent.trim().split(/\s+/).map(w=>`<span class="w">${w}</span>`).join(' ');
+
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!window.gsap||reduce){
+    document.querySelector('.curtain')?.remove();
+    document.querySelectorAll('.profile .w').forEach(w=>w.style.opacity=1);
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  // intro
+  const intro=gsap.timeline({defaults:{ease:'expo.out'}});
+  intro.from('.curtain__mono span',{yPercent:110,duration:1,stagger:.12})
+       .to('.curtain__bar i',{scaleX:1,duration:.9,ease:'power2.inOut'},'-=.5')
+       .to('.curtain__mono span',{yPercent:-110,duration:.7,stagger:.08,ease:'expo.in'})
+       .to('.curtain',{yPercent:-100,duration:1.1,ease:'expo.inOut'},'-=.2')
+       .set('.curtain',{display:'none'})
+       .from('.hero h1 .ch',{yPercent:115,rotate:6,duration:1.3,stagger:.035},'-=.7')
+       .from('.hero-in',{y:30,opacity:0,duration:1.2,stagger:.12},'-=1')
+       .from('.portrait .frame',{clipPath:'inset(100% 0 0 0)',duration:1.6,ease:'expo.inOut'},'-=1.6')
+       .from('.portrait img',{scale:1.35,duration:2,ease:'expo.out'},'<.3')
+       .from('.portrait .ring',{opacity:0,scale:.92,duration:1.4},'<.4')
+       .from('.portrait .cap',{x:-20,opacity:0,duration:1},'<.3')
+       .from('.blob',{scale:.4,opacity:0,duration:2,stagger:.2,ease:'power2.out'},'-=1.6')
+       .from('nav',{opacity:0,duration:1},'-=1.4');
+
+  // drifting blobs + hero parallax
+  gsap.to('.b1',{x:-60,y:40,duration:9,yoyo:true,repeat:-1,ease:'sine.inOut'});
+  gsap.to('.b2',{x:70,y:-30,duration:11,yoyo:true,repeat:-1,ease:'sine.inOut'});
+  gsap.to('.b3',{x:-80,y:-60,duration:13,yoyo:true,repeat:-1,ease:'sine.inOut'});
+  gsap.to('.hero h1 .row:first-child',{xPercent:-8,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  gsap.to('.hero h1 .row:last-child',{xPercent:6,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+  gsap.fromTo('.portrait img',{yPercent:0},{yPercent:-12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  gsap.to('.portrait .ring',{rotate:-3,y:30,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+  // progress bar
+  gsap.to('.progress',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:.3}});
+
+  // generic fade-ups
+  gsap.utils.toArray('.fade-up').forEach(el=>{
+    gsap.from(el,{y:50,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+  });
+
+  // profile word reveal
+  gsap.to('.profile .w',{opacity:1,stagger:.05,ease:'none',
+    scrollTrigger:{trigger:'#profileText',start:'top 80%',end:'bottom 45%',scrub:true}});
+
+  // counters
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    const o={v:0};
+    gsap.to(o,{v:+el.dataset.count,duration:2.2,ease:'power3.out',
+      scrollTrigger:{trigger:el,start:'top 85%'},onUpdate:()=>el.textContent=Math.round(o.v)});
+  });
+  gsap.from('.stat',{y:60,opacity:0,stagger:.12,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:'.stats',start:'top 75%'}});
+
+  // timeline rail + jobs
+  gsap.to('.rail i',{scaleY:1,ease:'none',scrollTrigger:{trigger:'.timeline',start:'top 70%',end:'bottom 70%',scrub:true}});
+  gsap.utils.toArray('.job').forEach(job=>{
+    const tl=gsap.timeline({scrollTrigger:{trigger:job,start:'top 75%',onEnter:()=>job.classList.add('on'),onLeaveBack:()=>job.classList.remove('on')}});
+    tl.from(job.querySelector('.yr'),{x:-30,opacity:0,duration:1,ease:'expo.out'})
+      .from(job.querySelectorAll('h3,.co,.intro'),{y:30,opacity:0,stagger:.08,duration:1,ease:'expo.out'},'<.1')
+      .from(job.querySelectorAll('li'),{y:16,opacity:0,stagger:.05,duration:.8,ease:'power3.out'},'<.3');
+  });
+
+  // marquees: duplicate track, loop, speed up with scroll velocity
+  document.querySelectorAll('.marquee').forEach(m=>{
+    const t=m.querySelector('.track'); m.appendChild(t.cloneNode(true));
+    const dir=+m.dataset.dir;
+    const tween=gsap.fromTo(m.querySelectorAll('.track'),{xPercent:dir<0?0:-100},{xPercent:dir<0?-100:0,duration:45,ease:'none',repeat:-1});
+    ScrollTrigger.create({trigger:m,start:'top bottom',end:'bottom top',onUpdate:self=>{
+      const v=Math.min(Math.abs(self.getVelocity())/300,4);
+      gsap.to(tween,{timeScale:1+v,duration:.2,overwrite:true});
+      gsap.to(tween,{timeScale:1,duration:1.2,delay:.2});
+    }});
+  });
+
+  // network map: draw arcs, pop cities, pulse
+  const arcs=gsap.utils.toArray('.arc');
+  arcs.forEach(p=>{const l=p.getTotalLength();gsap.set(p,{strokeDasharray:l,strokeDashoffset:l});});
+  const ntl=gsap.timeline({scrollTrigger:{trigger:'.network svg',start:'top 75%'}});
+  ntl.from('.dotgrid circle',{opacity:0,duration:.8,stagger:{amount:.8,from:'random'}})
+     .from('.city.home',{scale:0,transformOrigin:'center',duration:.6,ease:'back.out(3)'},'-=.4')
+     .to(arcs,{strokeDashoffset:0,duration:1.4,stagger:.18,ease:'power2.inOut'})
+     .from('.city:not(.home)',{scale:0,opacity:0,duration:.6,stagger:.18,ease:'back.out(3)'},'-=1.3');
+  gsap.utils.toArray('.city .pulse').forEach((c,i)=>{
+    gsap.fromTo(c,{attr:{r:5},opacity:.9},{attr:{r:22},opacity:0,duration:2.2,repeat:-1,delay:i*.35,ease:'power1.out'});
+  });
+
+  // competencies cloud
+  gsap.from('.cloud span',{y:40,opacity:0,scale:.9,duration:.9,stagger:{amount:1,from:'random'},ease:'back.out(1.6)',
+    scrollTrigger:{trigger:'.cloud',start:'top 80%'}});
+
+  // cards
+  gsap.from('.card',{y:70,opacity:0,stagger:.15,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:'.edu .cards',start:'top 80%'}});
+  gsap.utils.toArray('.card .yr').forEach(y=>gsap.fromTo(y,{yPercent:30},{yPercent:-20,ease:'none',scrollTrigger:{trigger:y.parentNode,scrub:true}}));
+
+  // contact headline
+  gsap.from('.contact h2 .row>span',{yPercent:110,duration:1.3,stagger:.12,ease:'expo.out',scrollTrigger:{trigger:'.contact h2',start:'top 80%'}});
+  gsap.from('.contact .btn,.contact .alt',{y:20,opacity:0,duration:1,stagger:.1,delay:.4,ease:'expo.out',scrollTrigger:{trigger:'.contact h2',start:'top 80%'}});
+
+  // custom cursor + magnetic button
+  if(matchMedia('(hover:hover)').matches){
+    const cur=document.querySelector('.cursor');
+    const qx=gsap.quickTo(cur,'x',{duration:.45,ease:'power3'}),qy=gsap.quickTo(cur,'y',{duration:.45,ease:'power3'});
+    addEventListener('mousemove',e=>{qx(e.clientX);qy(e.clientY);gsap.to(cur,{opacity:1,duration:.3});});
+    document.querySelectorAll('a,.cloud span').forEach(a=>{
+      a.addEventListener('mouseenter',()=>gsap.to(cur,{scale:1.8,duration:.3}));
+      a.addEventListener('mouseleave',()=>gsap.to(cur,{scale:1,duration:.3}));
+    });
+    document.querySelectorAll('.magnetic').forEach(b=>{
+      b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();
+        gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.25,y:(e.clientY-r.top-r.height/2)*.35,duration:.4});});
+      b.addEventListener('mouseleave',()=>gsap.to(b,{x:0,y:0,duration:.7,ease:'elastic.out(1,.4)'}));
+    });
+  }
+})();
+</script>
+</body>
+</html>
