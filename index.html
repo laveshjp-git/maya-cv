@@ -68,6 +68,7 @@ nav ul a:hover{opacity:1}
   .scroll-cue{display:none}
 }
 .scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);display:flex;flex-direction:column;align-items:center;gap:10px}
+@media (max-width:900px){.scroll-cue{display:none !important}}
 .scroll-cue i{width:1px;height:48px;background:linear-gradient(var(--ink-soft),transparent);display:block;animation:cue 2.2s ease-in-out infinite;transform-origin:top}
 @keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
 
@@ -174,7 +175,42 @@ h2 em{color:var(--gold)}
 .cursor{position:fixed;top:0;left:0;width:36px;height:36px;margin:-18px 0 0 -18px;border:1px solid var(--gold);border-radius:50%;pointer-events:none;z-index:80;opacity:0;mix-blend-mode:multiply}
 @media (hover:none){.cursor{display:none}}
 
+
+/* ===== extra motion ===== */
+.fx-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.badge{position:absolute;right:-46px;top:-30px;width:118px;height:118px;z-index:2;background:var(--ivory);border-radius:50%;box-shadow:0 10px 30px rgba(29,26,23,.08)}
+.badge svg{padding:6px}
+.badge svg{width:100%;height:100%;overflow:visible}
+.badge text{font-family:var(--sans);font-size:8.6px;letter-spacing:.12em;text-transform:uppercase;fill:var(--ink)}
+.badge .star{position:absolute;inset:0;display:grid;place-items:center;color:var(--gold);font-size:22px}
+@media (max-width:900px){.badge{display:none}}
+.portrait{perspective:900px}
+.portrait .tilt{position:absolute;inset:0;transform-style:preserve-3d}
+.kinetic{padding:clamp(40px,6vw,80px) 0;overflow:hidden;background:var(--ivory)}
+.kinetic .line{display:flex;white-space:nowrap;font-family:var(--serif);font-weight:400;font-size:clamp(70px,13vw,210px);line-height:1;letter-spacing:-.02em}
+.kinetic .line .t{display:flex;flex-shrink:0}
+.kinetic .line span{padding:0 .25em;color:transparent;-webkit-text-stroke:1px var(--gold)}
+.kinetic .line span:nth-child(even){color:var(--ink);-webkit-text-stroke:0;font-style:italic}
+.sec-label::after{transform-origin:left;transform:scaleX(0);transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.sec-label.in::after{transform:none}
+h2 .wd{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+h2 .wd>i{display:inline-block;font-style:inherit}
+.card{transform-style:preserve-3d;will-change:transform}
+.card .shine{position:absolute;inset:0;pointer-events:none;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(216,194,154,.35),transparent 45%);opacity:0;transition:opacity .4s}
+.card:hover .shine{opacity:1}
+.contact{position:relative}
+.contact>*:not(.fx-canvas):not(.orb){position:relative;z-index:1}
+.orb{position:absolute;left:50%;top:44%;width:min(80vw,820px);aspect-ratio:1;margin-left:calc(min(80vw,820px)/-2);margin-top:calc(min(80vw,820px)/-2);border-radius:50%;
+  background:conic-gradient(from 0deg,transparent,rgba(216,194,154,.22),transparent 40%,rgba(168,131,74,.18),transparent 75%);filter:blur(40px);pointer-events:none;z-index:0}
+.stat{position:relative;overflow:hidden}
+.stat::before{content:"";position:absolute;left:28px;top:0;height:2px;width:0;background:var(--gold-soft);transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.stat.in::before{width:48px}
+.job h3{position:relative}
+.scramble{font-variant-ligatures:none}
+
 @media (prefers-reduced-motion:reduce){
+  .sec-label::after{transform:none}
+  .fx-canvas,.orb{display:none}
   .curtain{display:none}
   .scroll-cue i{animation:none}
   .profile p.big .w{opacity:1}
@@ -204,12 +240,20 @@ h2 em{color:var(--gold)}
 
 <header class="hero" id="top">
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <canvas class="fx-canvas" data-fx="hero" aria-hidden="true"></canvas>
   <figure class="portrait">
+    <div class="tilt">
     <div class="ring"></div>
     <div class="frame"><img src="photo.jpg" alt="Portrait of Astri Darmayanti"></div>
+    </div>
+    <div class="badge" aria-hidden="true">
+    <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60,60 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"/></defs>
+      <text><textPath href="#circ" textLength="298" lengthAdjust="spacing">Public Relations · Hospitality · Lifestyle · </textPath></text></svg>
+    <div class="star">✦</div>
+  </div>
     <figcaption class="cap">Astri “Maya” Darmayanti</figcaption>
   </figure>
-  <div class="eyebrow hero-in">Public Relations Director · Jakarta</div>
+  <div class="eyebrow hero-in scramble" data-scramble>Public Relations Director · Jakarta</div>
   <h1 aria-label="Astri Darmayanti">
     <span class="row" data-split>Astri</span>
     <span class="row" data-split>Darmayanti</span>
@@ -229,6 +273,11 @@ h2 em{color:var(--gold)}
     <p class="fade-up">Detail-oriented and collaborative, delivering consistent work across multiple platforms and reaching each brand’s audience through strategic communications that drive visibility and business objectives.</p>
   </div>
 </section>
+
+<div class="kinetic" aria-hidden="true">
+  <div class="line" data-dir="-1"><div class="t"><span>Storytelling</span><span>Hospitality</span><span>Media</span><span>Lifestyle</span><span>Launches</span></div></div>
+  <div class="line" data-dir="1"><div class="t"><span>Press</span><span>Influence</span><span>Travel</span><span>Luxury</span><span>Strategy</span></div></div>
+</div>
 
 <section class="stats">
   <div class="grid">
@@ -355,13 +404,13 @@ h2 em{color:var(--gold)}
 <section class="edu">
   <div class="sec-label"><b>06</b><span>Education &amp; Recognition</span></div>
   <div class="cards">
-    <div class="card">
+    <div class="card"><div class="shine"></div>
       <div class="tag">Education</div>
       <h3>Bachelor of Communication Science in Public Relations (S.I.Kom.)</h3>
       <p>The London School of Public Relations — Jakarta</p>
       <div class="yr">LSPR</div>
     </div>
-    <div class="card">
+    <div class="card"><div class="shine"></div>
       <div class="tag">Award · 2026</div>
       <h3>Professional Excellence Award</h3>
       <p>“Shaping The Future Through Collaborative Excellence” — LSPR Communication &amp; Business Institute, Jakarta</p>
@@ -371,6 +420,8 @@ h2 em{color:var(--gold)}
 </section>
 
 <section class="contact" id="contact">
+  <div class="orb" aria-hidden="true"></div>
+  <canvas class="fx-canvas" data-fx="contact" aria-hidden="true"></canvas>
   <div class="eyebrow">Get in touch</div>
   <h2>
     <span class="row"><span>Let’s build</span></span>
@@ -434,6 +485,96 @@ h2 em{color:var(--gold)}
 
   // progress bar
   gsap.to('.progress',{scaleX:1,ease:'none',scrollTrigger:{start:0,end:'max',scrub:.3}});
+
+
+  // ===== extra motion =====
+  // particle constellation canvases
+  document.querySelectorAll('.fx-canvas').forEach(cv=>{
+    const ctx=cv.getContext('2d'),host=cv.parentElement,dark=cv.dataset.fx==='contact';
+    const col=dark?'216,194,154':'168,131,74';let W,H,pts=[],mouse={x:-999,y:-999},vis=false,dpr=Math.min(devicePixelRatio||1,2);
+    function size(){W=host.clientWidth;H=host.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+      const n=Math.round(Math.min(90,W*H/16000));pts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.8+.6}));}
+    size();addEventListener('resize',size);
+    host.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+    host.addEventListener('mouseleave',()=>{mouse.x=mouse.y=-999});
+    new IntersectionObserver(([en])=>vis=en.isIntersecting).observe(host);
+    (function tick(){requestAnimationFrame(tick);if(!vis)return;ctx.clearRect(0,0,W,H);
+      for(const p of pts){const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.hypot(dx,dy);
+        if(d<140){p.vx+=dx/d*.06;p.vy+=dy/d*.06;}
+        p.vx*=.985;p.vy*=.985;p.vx+=(Math.random()-.5)*.02;p.vy+=(Math.random()-.5)*.02;
+        p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fillStyle=`rgba(${col},.75)`;ctx.fill();}
+      for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<120){ctx.strokeStyle=`rgba(${col},${(1-d/120)*.35})`;ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+    })();
+  });
+
+  // text scramble on the eyebrow
+  document.querySelectorAll('[data-scramble]').forEach(el=>{
+    const final=el.textContent,chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ✦·';let f=0;
+    setTimeout(function run(){const p=f/40;el.textContent=[...final].map((c,i)=>c===' '||i/final.length<p?c:chars[Math.random()*chars.length|0]).join('');
+      if(f++<40)requestAnimationFrame(run);else el.textContent=final;},2600);
+  });
+
+  // rotating badge, faster while scrolling
+  const spin=gsap.to('.badge svg',{rotate:360,duration:18,ease:'none',repeat:-1});
+  ScrollTrigger.create({onUpdate:self=>{const v=Math.min(Math.abs(self.getVelocity())/200,6);gsap.to(spin,{timeScale:1+v,duration:.2,overwrite:true});gsap.to(spin,{timeScale:1,duration:1.5,delay:.2});}});
+  gsap.from('.badge',{scale:0,rotate:-180,opacity:0,duration:1.6,ease:'expo.out',delay:3});
+
+  // portrait 3D tilt
+  const hero=document.querySelector('.hero'),tilt=document.querySelector('.portrait .tilt');
+  if(tilt&&matchMedia('(hover:hover)').matches){
+    hero.addEventListener('mousemove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;
+      gsap.to(tilt,{rotateY:x*16,rotateX:-y*12,duration:.8,ease:'power3'});
+      gsap.to('.blob',{x:i=>x*(40+i*30),y:i=>y*(40+i*30),duration:1.4,ease:'power3',overwrite:'auto'});});
+    hero.addEventListener('mouseleave',()=>gsap.to(tilt,{rotateY:0,rotateX:0,duration:1.2,ease:'elastic.out(1,.5)'}));
+  }
+
+  // kinetic outlined text, skews with scroll velocity
+  document.querySelectorAll('.kinetic .line').forEach(l=>{
+    const t=l.querySelector('.t');l.appendChild(t.cloneNode(true));const dir=+l.dataset.dir;
+    const tw=gsap.fromTo(l.querySelectorAll('.t'),{xPercent:dir<0?0:-100},{xPercent:dir<0?-100:0,duration:30,ease:'none',repeat:-1});
+    const sk=gsap.quickTo(l,'skewX',{duration:.5,ease:'power3'});
+    ScrollTrigger.create({trigger:l,start:'top bottom',end:'bottom top',onUpdate:self=>{const v=self.getVelocity();
+      sk(gsap.utils.clamp(-14,14,v/-120));gsap.to(tw,{timeScale:(1+Math.min(Math.abs(v)/250,5))*(v<0?-1:1),duration:.2,overwrite:true});
+      gsap.to(tw,{timeScale:1,duration:1.4,delay:.25});clearTimeout(l._t);l._t=setTimeout(()=>sk(0),120);}});
+  });
+
+  // section label line draw
+  gsap.utils.toArray('.sec-label').forEach(el=>ScrollTrigger.create({trigger:el,start:'top 88%',onEnter:()=>el.classList.add('in')}));
+  gsap.utils.toArray('.sec-label b').forEach(b=>gsap.from(b,{rotate:-90,opacity:0,duration:1,ease:'back.out(2)',scrollTrigger:{trigger:b,start:'top 88%'}}));
+
+  // stat accent lines
+  gsap.utils.toArray('.stat').forEach(el=>ScrollTrigger.create({trigger:el,start:'top 85%',onEnter:()=>el.classList.add('in')}));
+
+  // competency pills float idly
+  gsap.utils.toArray('.cloud span').forEach((s,i)=>gsap.to(s,{y:gsap.utils.random(-6,6),duration:gsap.utils.random(2.2,3.8),yoyo:true,repeat:-1,ease:'sine.inOut',delay:1.5+i*.07}));
+
+  // education cards tilt + cursor shine
+  if(matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.card').forEach(c=>{
+      c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+        c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');
+        gsap.to(c,{rotateY:(x-.5)*10,rotateX:-(y-.5)*10,transformPerspective:900,duration:.5});});
+      c.addEventListener('mouseleave',()=>gsap.to(c,{rotateY:0,rotateX:0,duration:1,ease:'elastic.out(1,.5)'}));
+    });
+  }
+
+  // contact orb rotation + parallax
+  gsap.to('.orb',{rotate:360,duration:24,ease:'none',repeat:-1});
+  gsap.fromTo('.orb',{scale:.6,opacity:0},{scale:1.1,opacity:1,ease:'none',scrollTrigger:{trigger:'.contact',start:'top bottom',end:'top 20%',scrub:true}});
+
+  // section h2 word reveals (non-contact)
+  gsap.utils.toArray('section:not(.contact) h2').forEach(h=>{
+    h.classList.remove('fade-up');
+    const walk=n=>{[...n.childNodes].forEach(c=>{
+      if(c.nodeType===3&&c.textContent.trim()){const f=document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w)){f.appendChild(document.createTextNode(w));return;}
+          const o=document.createElement('span');o.className='wd';o.innerHTML='<i></i>';o.firstChild.textContent=w;f.appendChild(o);});
+        c.replaceWith(f);} else if(c.nodeType===1&&c.tagName!=='BR')walk(c);});};
+    walk(h);
+    gsap.from(h.querySelectorAll('.wd>i'),{yPercent:110,rotate:4,duration:1.2,stagger:.06,ease:'expo.out',scrollTrigger:{trigger:h,start:'top 85%'}});
+  });
 
   // generic fade-ups
   gsap.utils.toArray('.fade-up').forEach(el=>{
